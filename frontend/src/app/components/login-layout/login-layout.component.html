@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="content">
+    <div class="header">
+      <h1>{{title}}</h1>
+      <p>{{description}}</p>
+    </div>
+    <ng-content></ng-content>
+    <div class="buttons">
+      <button mat-raised-button color="primary" (click)="emitirSubmitEvent()">
+        {{primaryButton}}
+      </button>
+      <button mat-stroked-button color="primary" (click)="emitirNavigateEvent()">
+        {{secondaryButton}}
+      </button>
+    </div>
+  </div>
+</div>

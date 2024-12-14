@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgreDB
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=pactoSolucoes
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - pacto-network
+  
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: mikael/recruitment-api
+    container_name: pactoApi
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/pactoSolucoes
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=admin
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - pacto-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: mikael/recruitment-front-end
+    container_name: pactoFront
+    ports:
+      - "4200:4200"
+    networks:
+      - pacto-network
+
+networks:
+  pacto-network:
+
+volumes:
+  postgres-data:

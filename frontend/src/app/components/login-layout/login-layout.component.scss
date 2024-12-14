@@ -1,0 +1,127 @@
+main {
+  width: 100%;
+  height: 99.9vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.section-form {
+  width: 28%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 48px;
+  gap: 8px;
+  background-color: white;
+
+  h2 {
+    color: var(--dark-grey);
+    font-size: xx-large;
+    margin-bottom: 4px;
+  }
+
+  button {
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    margin-top: 12px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition-duration: 500ms;
+  }
+
+  .register-button {
+    margin-top: 4px;
+    width: 100%;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    background-color: var(--light-grey);
+    color: var(--primary);
+    font-size: 16px;
+    cursor: pointer;
+    transition-duration: 500ms;
+  }
+
+  .register-button:hover {
+    background: var(--secondary);
+    border: none;
+    color: white;
+  }
+
+  button:hover {
+    background: var(--secondary);
+  }
+
+  .separator {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    color: var(--dark-grey);
+  }
+
+  .separator-line {
+    width: 100%;;
+    height: 1px;
+    background-color: var(--medium-text);
+  }
+}
+
+.section-folder {
+  width: 72%;
+  height: 100%;
+  background-color: var(--light-grey);
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  p {
+    margin: 0.5rem 0 0;
+    color: #666;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  button {
+    width: 100%;
+    height: 40px;
+  }
+}

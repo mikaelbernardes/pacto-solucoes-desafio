@@ -1,0 +1,53 @@
+@use 'ngx-toastr/toastr';
+
+:root {
+  --dark-grey: #333333;
+  --light-grey: #EEE;
+  --light-text: #e5e5e5;
+  --medium-text: #939393;
+  --yellow: #FFB612;
+  --red: #dc0a17;
+  --green: #2FC022;
+  --primary: #0F46C7;
+  --secondary: #3C82FB;
+}
+
+* {
+  font-family: 'Gotham';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham/gotham-light.woff2') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham/gotham-book.woff2') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham/gotham-bold.woff2') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('assets/fonts/Gotham/gotham-black.woff2') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}

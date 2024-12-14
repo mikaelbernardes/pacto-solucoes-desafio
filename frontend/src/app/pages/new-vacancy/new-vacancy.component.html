@@ -1,0 +1,113 @@
+<app-header></app-header>
+<div class="new-vacancy-container">
+  <h1>{{ isViewOnly ? 'Detalhes da Vaga' : (isEditing ? 'Editar Vaga' : 'Criar Nova Vaga') }}</h1>
+
+  <form [formGroup]="vacancyForm" (ngSubmit)="onSubmit()" class="vacancy-form">
+    <div class="form-group">
+      <label for="title">Título da Vaga</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="Ex: Desenvolvedor Frontend Senior"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descrição</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="4"
+        placeholder="Descreva os detalhes da vaga..."
+      ></textarea>
+    </div>
+
+    @if (isEditing) {
+      <div class="form-group">
+        <label for="status">Status da Vaga</label>
+        <select id="status" formControlName="status" class="status-select">
+          @for (option of statusOptions; track option.value) {
+            <option [value]="option.value">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+    }
+
+    <div class="form-group">
+      <label>Requisitos</label>
+      <div class="requirements-input">
+        <input
+          type="text"
+          formControlName="newRequirement"
+          placeholder="Adicione um requisito"
+          (keyup.enter)="addRequirement()"
+        >
+        <button type="button" (click)="addRequirement()" class="add-requirement-btn">
+          Adicionar
+        </button>
+      </div>
+
+      <div class="requirements-list">
+        @for (requirement of requirements; track requirement; let i = $index) {
+          <div class="requirement-tag">
+            {{ requirement }}
+            <button type="button" (click)="removeRequirement(i)" class="remove-btn">
+              ×
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="cancel-btn" routerLink="/home">Voltar</button>
+      @if (isEditing) {
+        <button type="button" class="delete-btn" (click)="deleteVacancy()">
+          Excluir Vaga
+        </button>
+      }
+      @if (isViewOnly) {
+        @if (hasApplied) {
+          <div class="application-status" [class]="currentApplication?.status?.toLowerCase()">
+            Status: {{ applicationStatus[currentApplication?.status || ''] }}
+          </div>
+        } @else {
+          <button
+            type="button"
+            class="apply-btn"
+            (click)="applyToVacancy()"
+          >
+            Candidatar-se
+          </button>
+        }
+      } @else {
+        <button type="submit" [disabled]="!isFormValid" class="submit-btn">
+          {{ isEditing ? 'Salvar Alterações' : 'Publicar Vaga' }}
+        </button>
+      }
+    </div>
+  </form>
+
+  @if (isEditing && applications.length > 0) {
+    <div class="applications-section">
+      <h2>Candidatos ({{ applications.length }})</h2>
+      <div class="applications-list">
+        @for (application of applications; track application.login) {
+          <div class="application-card">
+            <div class="candidate-info">
+              <div class="candidate-name">
+                <i class="fas fa-user"></i>
+                <h3>{{ application.name || 'Nome não disponível' }}</h3>
+              </div>
+              <div class="candidate-email">
+                <i class="fas fa-envelope"></i>
+                <p>{{ application.login || 'Email não disponível' }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>
