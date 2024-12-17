@@ -53,6 +53,8 @@ Para acessar todos os endpoints do backend, use o Swagger: [http://localhost:808
   * Responsividade nas páginas, adaptando-se ao tamanho da tela.
   * Disponibilização de uma versão dockerizada para facilitar a execução do projeto.
   * Utilização de boas práticas de usabilidade, como toasts e navegação fluída.
-  * A implementação de testes de código não foi realizada devido ao tempo restrito. Idealmente, a abordagem TDD seria adotada para as funcionalidades implementadas.]
+  * A implementação de testes de código não foi realizada devido ao tempo restrito. Idealmente, a abordagem TDD seria adotada para as funcionalidades implementadas.
+  * Obs.: Não foi usado Getter, Setter, NoArgsConstrctors e AllArgsConstructor do lombok por conta de outros projetos antigos com configurações conflitantes, e por conta do tempo resolvi não reconfigurar
+    
 ### Considerações Finais
 Embora não tenha tido quatro dias completos para trabalhar no projeto devido ao meu emprego atual, me dediquei ao máximo, realizando o trabalho principalmente à noite. Você pode verificar o histórico de commits tanto do frontend quanto do backend para acompanhar a evolução do projeto. Espero de coração que gostem do resultado e, caso tenham dúvidas ou queiram discutir algum ponto, estou à disposição para contato.
